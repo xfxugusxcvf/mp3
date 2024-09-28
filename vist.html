@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penghitung Pengunjung</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .counter-box {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        p {
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="counter-box">
+        <h1>Jumlah Pengunjung</h1>
+        <p id="visitorCount"></p>
+    </div>
+
+    <script>
+        // API sederhana untuk menghitung jumlah pengunjung
+        fetch('https://api.countapi.xyz/hit/dika-mp3.github.io/mp3/visits')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('visitorCount').innerText = data.value;
+        });
+    </script>
+</body>
+</html>
