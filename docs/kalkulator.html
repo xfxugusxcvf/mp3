@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.1">
+    <title>FREEPALESTINE🇵🇸</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background-color: #f0f8ff;
+        }
+        input {
+            width: 200px;
+            height: 40px;
+            font-size: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .button {
+            width: 60px;
+            height: 60px;
+            font-size: 24px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 10px;
+            border: none;
+            background-color: #00FFDF;
+            color: black;
+        }
+        .button:hover {
+            background-color: #00c2a8;
+        }
+        table {
+            margin-top: 20px;
+            width: 300px;
+            border-collapse: collapse;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 20px;
+        }
+        th, td {
+            padding: 10px;
+            border: 2px solid #007acc;
+            text-align: center;
+        }
+        th {
+            background-color: #00FFDF;
+        }
+        td {
+            background-color: #f0f8ff;
+            color: #007acc;
+        }
+        .container {
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Kalkulator🧮</h1>
+    
+    <input type="text" id="expression" placeholder="0" disabled />
+    <br>
+    <div class="container">
+        <button class="button" onclick="appendToExpression('1')">1</button>
+        <button class="button" onclick="appendToExpression('2')">2</button>
+        <button class="button" onclick="appendToExpression('3')">3</button>
+        <button class="button" onclick="appendToExpression('+')">+</button>
+        <br>
+        <button class="button" onclick="appendToExpression('4')">4</button>
+        <button class="button" onclick="appendToExpression('5')">5</button>
+        <button class="button" onclick="appendToExpression('6')">6</button>
+        <button class="button" onclick="appendToExpression('-')">-</button>
+        <br>
+        <button class="button" onclick="appendToExpression('7')">7</button>
+        <button class="button" onclick="appendToExpression('8')">8</button>
+        <button class="button" onclick="appendToExpression('9')">9</button>
+        <button class="button" onclick="appendToExpression('*')">×</button>
+        <br>
+        <button class="button" onclick="clearExpression()">C</button>
+        <button class="button" onclick="appendToExpression('0')">0</button>
+        <button class="button" onclick="appendToExpression('/')">÷</button>
+        <button class="button" onclick="calculate()">=</button>
+    </div>
+    
+    <table>
+        <tr>
+            <th>Hasil</th>
+        </tr>
+        <tr>
+            <td id="result">---</td>
+        </tr>
+    </table>
+    
+    <script>
+        // Fungsi untuk menambahkan nilai ke dalam ekspresi
+        function appendToExpression(value) {
+            const expressionInput = document.getElementById('expression');
+            if (expressionInput.value === "0") {
+                expressionInput.value = value;
+            } else {
+                expressionInput.value += value;
+            }
+        }
+
+        // Fungsi untuk menghitung ekspresi
+        function calculate() {
+            const expression = document.getElementById('expression').value;
+            let result;
+            
+            if (expression === "11+11") {
+                result = "I LOVE YOU🥰❤️";
+            } else if (expression === "12+1+12") {
+                result = "Happy Birthday for me 🥸";
+            } else if (expression === "+62") {
+                result = "hah?🗿 +6283841852697";
+            } else {
+                try {
+                    result = eval(expression.replace('×', '*').replace('÷', '/'));
+                } catch (e) {
+                    result = "Ekspresi tidak valid";
+                }
+            }
+
+            document.getElementById('result').innerHTML = result;
+            document.getElementById('expression').value = "0"; // Reset input setelah dihitung
+        }
+
+        // Fungsi untuk membersihkan ekspresi
+        function clearExpression() {
+            document.getElementById('expression').value = "0";
+            document.getElementById('result').innerHTML = "---";
+        }
+    </script>
+
+</body>
+</html>
